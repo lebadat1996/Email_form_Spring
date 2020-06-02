@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <form th:action="@{/formEmail}" method="post" th:object="${formEmail}">
+        <label>language</label>
+        <select th:field="*{language}">
+            <option th:each="lg : ${language}" th:value="${lg}" th:text="${lg}"></option>
+        </select>
+        <br>
+        <br>
+        <label>Size</label>
+        <select th:field="*{size}">
+            <option th:each="s : ${size}" th:value="${s}" th:text="${s}"></option>
+        </select>
+        <br>
+        <br>
+        <div>
+            <label>Spam filter</label>
+            <input type="checkbox" th:field="*{spamFilter}"/>
+        </div>
+        <div>
+            <label>Signature</label>
+            <textarea th:field="*{signature}"></textarea>
+        </div>
+        <div>
+            <input type="submit" value="submit">
+        </div>
+    </form>
+</div>
+</body>
+</html>

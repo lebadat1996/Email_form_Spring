@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="#" th:action="@{/formEmail}" th:object="${formEmail}"
+      method="POST" novalidate="novalidate">
+    <div>
+        <label>language: </label>
+        <p th:text="${formEmail.language}" th:field="*{language}"></p>
+    </div>
+    <div>
+        <label>Size: </label>
+        <p th:text="${formEmail.size}" th:field="*{size}"></p>
+    </div>
+    <div>
+        <label>spamFilter: </label>
+        <p th:text="${formEmail.spamFilter}" th:field="*{spamFilter}"></p>
+    </div>
+    <div>
+        <label>signature: </label>
+        <p th:field="*{signature}" th:text="${formEmail.signature}"></p>
+    </div>
+</form>
+</body>
+</html>
